@@ -15,9 +15,12 @@ export default {
         background: '#ffffff',
         foreground: '#000000',
       },
+      backgroundImage: {
+        'custom-fond': "url('/bg-fond.jpeg')",
+      },
     },
   },
   plugins: [
-    require('@tailwindcss/forms'), 
+    require('@tailwindcss/forms'),
   ],
 } satisfies Config;
