@@ -1,11 +1,14 @@
 
-import { Box, Button } from '@chakra-ui/react'
+
+import { Button } from '@mui/material'
 import React from 'react'
 
 function Header() {
   return (
     <>
-        <Button colorPalette="teal" variant="solid">salam</Button>
+       <Button variant="contained" disableElevation>
+  Disable elevation
+</Button>
     </>
   )
 }
