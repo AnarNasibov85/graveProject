@@ -20,6 +20,7 @@ export default function Home() {
       />
       <Box sx={{ position: 'relative', zIndex: 1, }}>
         <Header />
+       
         <div className='mx-10'>  
         <Box>
           <h1 className='text-6xl font-semibold'>Professional Jewish Cemetery <br/> Cleaning Services –<br/>
