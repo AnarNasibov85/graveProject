@@ -14,6 +14,9 @@ export default {
       colors: {
         background: '#ffffff',
         foreground: '#000000',
+        mainColor: '#CE1535',
+        gray:'#606060'
+
       },
       backgroundImage: {
         'custom-fond': "url('/bg-fond.jpeg')",
