@@ -33,7 +33,7 @@ function Header() {
           <li className='font-semibold text-base cursor-pointer'>About Us</li>
           <li className='font-semibold text-base cursor-pointer'>Contact</li>
           <li className='font-semibold text-base cursor-pointer'>FAQ</li>
-          <li>
+          {/* <li>
           <Button
           className='text-black border-black rounded-full py-3 px-6'
         onClick={handleClick}
@@ -59,6 +59,10 @@ function Header() {
         <MenuItem onClick={handleBasket}>Basket</MenuItem>
         <MenuItem onClick={handleLogOut}>Log Out</MenuItem>
       </Menu>
+          </li> */}
+          <li>
+          <Button variant="contained" className='normal-case font-sans bg-mainColor py-3 px-7 w-32'>Sign In</Button>
+
           </li>
         </ul>
        </div>

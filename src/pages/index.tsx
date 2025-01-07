@@ -1,6 +1,7 @@
 import { Box, Button } from '@mui/material';
 import Header from '../components/Header';
 import Image from 'next/image';
+import Services from '@/components/MainPage/Services';
 
 export default function Home() {
   return (
@@ -36,6 +37,7 @@ export default function Home() {
           <Image src='/main2.svg' alt='main2' width={400} height={400} className='w-[260px] h-[216px]'/>
           <Image src='/main1.svg' alt='main3' width={500} height={500} className='w-[530px] h-[216px]'/>
         </div>
+        <Services/>
         </div>
 
       </Box>
