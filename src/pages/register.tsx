@@ -4,131 +4,212 @@ import {
   Button,
   Typography,
   Box,
-  InputAdornment,
-  IconButton,
   Link,
   Checkbox,
   FormControlLabel,
-  Grid
+  Grid,
 } from '@mui/material';
-import Visibility from '@mui/icons-material/Visibility';
-import VisibilityOff from '@mui/icons-material/VisibilityOff';
+
 import Image from 'next/image';
+import Header from '@/components/Header';
 
 function Register() {
   return (
     <div>
+      {/* Header with consistent design */}
       <Box
         sx={{
           position: 'absolute',
-          left: 10,
-          padding: 10,
-          display: 'flex',
+          top: 0,
+          left: 0,
+          right: 0,
+          padding: 2,
+          justifyContent: 'center',
           alignItems: 'center',
-          cursor: "pointer",
+          cursor: 'pointer',
+          zIndex: 10,
         }}
       >
-        <Image src='/logo.svg' alt='Logo' width={150} height={100} />
-   
+        <Header className="text-white" />
       </Box>
-      <Grid container>
-        <Grid item xs={12} md={6} sx={{ display: 'flex', justifyContent: 'center' }}>
+
+      <Grid container sx={{ height: '100vh' }}>
+        <Grid
+          item
+          xs={12}
+          md={6}
+          sx={{ display: 'flex', justifyContent: 'center' }}
+        >
           <Box
             sx={{
-              marginTop: 25,
+              marginTop: 20,
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
-              width: { xs: '100%', md: '440px' },
+              width: { xs: '100%', md: '400px' },
               padding: { xs: '20px', md: '0' },
               height: '536px',
-              marginLeft: { xs: '0', md: '76px' },
             }}
           >
-            <Typography  component='h1' variant='h5' sx={{ width: '100%', textAlign: 'left', paddingBottom: '10px' }}>
-            Sign up
+            <Typography
+              component="h1"
+              variant="h5"
+              sx={{ width: '100%', textAlign: 'left', paddingBottom: '10px' }}
+            >
+              Sign up
             </Typography>
-            <Typography variant='body2' sx={{ width: '100%', textAlign: 'left', paddingBottom: '10px' }}>
-            Already have an account?{' '}
-              <Link href='/login' variant='body2'>
-              Sign in
+            <Typography
+              variant="body2"
+              sx={{ width: '100%', textAlign: 'left', paddingBottom: '10px' }}
+            >
+              Already have an account?{' '}
+              <Link href="/login" variant="body2">
+                Sign in
               </Link>
             </Typography>
-            <Box component='form' noValidate sx={{ mt: 1 }}>
+            <Box component="form" noValidate sx={{ mt: 1 }}>
               <TextField
-                margin='normal'
+                margin="normal"
                 required
                 fullWidth
-                id='firstName'
-                label='name'
-                name='firstName'
-                autoFocus
-              />
-              <TextField
-                margin='normal'
-                required
-                fullWidth
-                id='surname'
-                label='Surname'
-                name='surname'
-              />
-              <TextField
-                margin='normal'
-                required
-                fullWidth
-                id='email'
-                label='Email address'
-                name='email'
-                autoComplete='email'
-              />
-              <TextField
-                margin='normal'
-                required
-                fullWidth
-                name='password'
-                label='password'
-                type='password'
-                id='password'
-                autoComplete='current-password'
-                InputProps={{
-                  endAdornment: (
-                    <InputAdornment position='end'>
-                      <IconButton edge='end'>
-                        <VisibilityOff />
-                      </IconButton>
-                    </InputAdornment>
-                  ),
+                id="firstName"
+                label="Name"
+                name="firstName"
+                sx={{
+                  width: '400px',
+                  '& .MuiOutlinedInput-root': {
+                    
+                  },
+                  '& input': {
+                    height: '48px',
+                    padding: '0 14px',
+                    backgroundColor: '#FEFAFA',
+                  },
                 }}
               />
-              
-            
-            <Button
-  type='submit'
-  fullWidth
-  variant='contained'
-  sx={{
-    mt: 3,
-    mb: 2,
-    backgroundColor: '#CE1535',
-    color: 'white',
-  }}
->
-  Sign Up
-</Button>
-<FormControlLabel
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                id="surname"
+                label="Surname"
+                name="surname"
+                sx={{
+                  width: '400px',
+                  '& .MuiOutlinedInput-root': {
+                   
+                  },
+                  '& input': {
+                    height: '48px',
+                    padding: '0 14px',
+                    backgroundColor: '#FEFAFA',
+                  },
+                }}
+              />
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                id="email"
+                label="Email address"
+                name="email"
+                sx={{
+                  width: '400px',
+                  '& .MuiOutlinedInput-root': {
+
+                  },
+                  '& input': {
+                    height: '48px',
+                    padding: '0 14px',
+                    backgroundColor: '#FEFAFA',
+                  },
+                }}
+              />
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                name="password"
+                label="Password"
+                type="password"
+                id="password"
+                sx={{
+                  width: '400px',
+                  '& .MuiOutlinedInput-root': {
+
+                  },
+                  '& input': {
+                    height: '48px',
+                    padding: '0 14px',
+                    backgroundColor: '#FEFAFA',
+                  },
+                }}
+              />
+              {/* Confirm Password Field */}
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                id="confirmPassword"
+                label="Confirm Password"
+                type="password"
+                name="confirmPassword"
+                sx={{
+                  width: '400px',
+                  '& .MuiOutlinedInput-root': {
+
+                  },
+                  '& input': {
+                    height: '48px',
+                    padding: '0 14px',
+                    backgroundColor: '#FEFAFA',
+                  },
+                }}
+              />
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                sx={{
+                  mt: 3,
+                  mb: 2,
+                  backgroundColor: '#CE1535',
+                  color: 'white',
+                  width: '400px',
+                  height: '48px',
+                }}
+              >
+                Sign Up
+              </Button>
+              <FormControlLabel
                 control={
                   <Checkbox
-                    name='terms'
-                    color='secondary'
+                    name="terms"
+                    color="secondary"
                   />
                 }
-                label='I agree to your  Terms of seivice & Privacy Policy'
+                label="I agree to your Terms of Service & Privacy Policy"
               />
             </Box>
           </Box>
         </Grid>
-        <Grid item xs={12} md={6}>
-          <Image src='/cat.svg' alt='Login Image' className='w-full h-[100vh] md:mt-0 mt-28' width={741} height={812} style={{ objectFit: 'cover' }} />
+        <Grid
+          item
+          xs={12}
+          md={6}
+          sx={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+        >
+          <Image
+            src="/cat.svg"
+            alt="Login Image"
+            width={741}
+            height={812}
+            style={{ objectFit: 'cover', width: '100%', height: 'auto' }}
+          />
         </Grid>
       </Grid>
     </div>
@@ -136,6 +217,3 @@ function Register() {
 }
 
 export default Register;
-
-
-

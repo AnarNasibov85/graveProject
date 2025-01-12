@@ -4,7 +4,7 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import type { AppProps } from 'next/app';
 
-// Tema yaradın (opsional)
+
 const theme = createTheme({
   palette: {
     primary: {

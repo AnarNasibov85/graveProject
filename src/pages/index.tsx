@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import Image from 'next/image';
 import Services from '@/components/MainPage/Services';
 
+
 export default function Home() {
   return (
     <Box sx={{ position: 'relative', height: '100vh' }}>
@@ -20,6 +21,7 @@ export default function Home() {
       />
       <Box sx={{ position: 'relative', zIndex: 1, }}>
         <Header />
+        
        
         <div className='mx-10'>  
         <Box>
