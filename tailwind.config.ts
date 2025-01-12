@@ -12,7 +12,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: '#ffffff',
+        background: '#f3f3f9',
         foreground: '#000000',
         mainColor: '#CE1535',
         gray:'#606060'

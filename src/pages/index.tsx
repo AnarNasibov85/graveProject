@@ -2,6 +2,8 @@ import { Box, Button } from '@mui/material';
 import Header from '../components/Header';
 import Image from 'next/image';
 import Services from '@/components/MainPage/Services';
+import AboutUs from '@/components/MainPage/AboutUs';
+import Faq from '@/components/MainPage/Faq';
 
 export default function Home() {
   return (
@@ -15,10 +17,11 @@ export default function Home() {
           width: '100%',
           filter: 'blur(26px)',
           position: 'absolute',
-          zIndex: 0, 
+          zIndex: 1,
+          
         }}
       />
-      <Box sx={{ position: 'relative', zIndex: 1, }}>
+      <Box sx={{ position: 'relative', zIndex: 2, bgcolor:"#f3f3f9" }}>
         <Header />
        
         <div className='mx-10'>  
@@ -39,6 +42,8 @@ export default function Home() {
           <Image src='/main1.svg' alt='main3' width={500} height={500} className='w-[530px] h-[216px]'/>
         </div>
         <Services/>
+        <div><AboutUs/></div>
+        <div className='mt-32'><Faq/></div>
         </div>
 
       </Box>
