@@ -42,7 +42,7 @@ const cardData = [
 
 function Services() {
   return (
-    <div className='mt-32 mx-32'>
+    <div className='mt-32 mx-32 '>
       <div className='text-center mb-10'>
         <h2 className='text-4xl'>Our services</h2>
         <p className='text-gray'>
