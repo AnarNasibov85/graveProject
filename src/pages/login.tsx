@@ -4,15 +4,14 @@ import {
   Button,
   Typography,
   Box,
-  InputAdornment,
-  IconButton,
   Link,
   Grid,
 } from '@mui/material';
-import Visibility from '@mui/icons-material/Visibility';
-import VisibilityOff from '@mui/icons-material/VisibilityOff';
+
 import Image from 'next/image';
 import Header from '@/components/Header';
+import { useRouter } from 'next/router';
+// const router=useRouter()
 
 function Login() {
   return (
@@ -30,10 +29,11 @@ function Login() {
             justifyContent: 'center',
             alignItems: 'center',
             cursor: 'pointer',
-            zIndex: 10, // Ensures header stays above other elements
+            zIndex: 10,
           }}
+
         >
-          <Header className='text-white' />
+          <Header className="text-white" />
         </Box>
 
         {/* Main grid container for the login page */}
@@ -59,63 +59,76 @@ function Login() {
               }}
             >
               <Typography
-                component='h1'
-                variant='h5'
+                component="h1"
+                variant="h5"
                 sx={{ width: '100%', textAlign: 'left', paddingBottom: '10px' }}
               >
                 Sign in
               </Typography>
               <Typography
-                variant='body2'
+                variant="body2"
                 sx={{ width: '100%', textAlign: 'left', paddingBottom: '10px' }}
               >
                 Don't have an account?{' '}
-                <Link href='/register' variant='body2'>
+                <Link href="/register" variant="body2">
                   Sign up
                 </Link>
               </Typography>
 
-              <Box component='form' noValidate sx={{ width: '100%' }}>
+              <Box component="form" noValidate sx={{ width: '100%' }}>
                 <TextField
-                  margin='normal'
+                  margin="normal"
                   required
                   fullWidth
-                  id='email'
-                  label='Email address'
-                  name='email'
-                  autoComplete='email'
+                  id="email"
+                  label="Email address"
+                  name="email"
+                  autoComplete="email"
                   autoFocus
+                 
+                  sx={{
+                    '& .MuiOutlinedInput-root': {
+                      padding: 0,
+                    },
+                    '& input': {
+                      height: '48px',
+                      padding: '0 14px',
+                      backgroundColor:"#FEFAFA"
+                    },
+                  }}
                 />
                 <TextField
-                  margin='normal'
+                  margin="normal"
                   required
                   fullWidth
-                  name='password'
-                  label='Password'
-                  type='password'
-                  id='password'
-                  autoComplete='current-password'
-                  InputProps={{
-                    endAdornment: (
-                      <InputAdornment position='end'>
-                        <IconButton aria-label='toggle password visibility' edge='end'>
-                          <VisibilityOff />
-                        </IconButton>
-                      </InputAdornment>
-                    ),
+                  name="password"
+                  label="Password"
+                  type="password"
+                  id="password"
+                
+                  autoComplete="current-password"
+                  sx={{
+                    '& .MuiOutlinedInput-root': {
+                      padding: 0,
+                    },
+                    '& input': {
+                      height: '48px',
+                      padding: '0 14px',
+                      backgroundColor:"#FEFAFA"
+                    },
                   }}
                 />
                 <Grid container>
                   <Grid item xs>
-                    <Link href='#' variant='body2'>
+                    <Link href="#" variant="body2">
                       Forgot password?
                     </Link>
                   </Grid>
                 </Grid>
                 <Button
-                  type='submit'
+                  type="submit"
                   fullWidth
-                  variant='contained'
+                  variant="contained"
                   sx={{
                     mt: 3,
                     mb: 2,
@@ -142,8 +155,8 @@ function Login() {
             }}
           >
             <Image
-              src='/cat.svg'
-              alt='Login Image'
+              src="/cat.svg"
+              alt="Login Image"
               width={400}
               height={400}
               style={{

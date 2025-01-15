@@ -7,6 +7,7 @@ import Faq from '@/components/MainPage/Faq';
 import Organize from '@/components/MainPage/Organize';
 import Footer from '@/components/Footer';
 
+
 export default function Home() {
   return (
     <Box sx={{ position: 'relative', height: '100vh' }}>
@@ -27,6 +28,7 @@ export default function Home() {
       zIndex: 1,
       bgcolor: "transparent",}}>
         <Header />
+        
        
         <div className='mx-10'>  
         <Box>

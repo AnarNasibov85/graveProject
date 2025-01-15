@@ -38,10 +38,10 @@ const Header: React.FC<Text> = ({className }) => {
         <Image src='/logo.svg' alt='logo' width={150} height={100}/>
         <ul className='flex gap-10 items-center'>
         
-          <li className={clsx(className, 'font-semibold text-base cursor-pointer')}>Services</li>
-          <li className={clsx(className, 'font-semibold text-base cursor-pointer')}>About Us</li>
-          <li className={clsx(className, 'font-semibold text-base cursor-pointer')}>Contact</li>
-          <li className={clsx(className, 'font-semibold text-base cursor-pointer')}>FAQ</li>
+          <li onClick={()=>route.push('/services')} className={clsx(className, 'font-semibold text-base cursor-pointer')}>Services</li>
+          <li onClick={()=>route.push('/aboutUs')} className={clsx(className, 'font-semibold text-base cursor-pointer')}>About Us</li>
+          <li onClick={()=>route.push('/contact')} className={clsx(className, 'font-semibold text-base cursor-pointer')}>Contact</li>
+          <li onClick={()=>route.push('/faq')} className={clsx(className, 'font-semibold text-base cursor-pointer')}>FAQ</li>
           {/* <li>
           <Button
           className='text-black border-black rounded-full py-3 px-6'
