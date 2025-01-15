@@ -4,6 +4,8 @@ import Image from 'next/image';
 import Services from '@/components/MainPage/Services';
 import AboutUs from '@/components/MainPage/AboutUs';
 import Faq from '@/components/MainPage/Faq';
+import Organize from '@/components/MainPage/Organize';
+import Footer from '@/components/Footer';
 
 export default function Home() {
   return (
@@ -17,11 +19,13 @@ export default function Home() {
           width: '100%',
           filter: 'blur(26px)',
           position: 'absolute',
-          zIndex: 1,
-          
+          zIndex: 0,
         }}
       />
-      <Box sx={{ position: 'relative', zIndex: 2, bgcolor:"#f3f3f9" }}>
+      <Box sx={{
+      position: 'absolute',
+      zIndex: 1,
+      bgcolor: "transparent",}}>
         <Header />
        
         <div className='mx-10'>  
@@ -44,7 +48,9 @@ export default function Home() {
         <Services/>
         <div><AboutUs/></div>
         <div className='mt-32'><Faq/></div>
+        <div><Organize/></div>
         </div>
+        <Footer/>
 
       </Box>
     </Box>
