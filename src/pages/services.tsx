@@ -1,3 +1,4 @@
+import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 import { Input } from '@mui/material'
 import React from 'react'
@@ -28,8 +29,11 @@ function services() {
           />
         </div>
       </div>
+      <Footer/>
     </div>
+      
   )
+
 }
 
 export default services

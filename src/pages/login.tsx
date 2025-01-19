@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   TextField,
   Button,
@@ -11,9 +11,18 @@ import {
 import Image from 'next/image';
 import Header from '@/components/Header';
 import { useRouter } from 'next/router';
-// const router=useRouter()
+import { Login1 } from '../../constants/instanceAxios';
 
-function Login() {
+const  Login: React.FC = () => {
+  const router=useRouter()
+
+  const [email,SetEmail]=useState('')
+  const [password,SetPassword]=useState('')
+  const[errorMessage,setErrorMessage]=useState('')
+
+  const handleLogoClick=()=>{
+router.push('/')
+  }
   return (
     <div>
       {/* Container with relative positioning */}
@@ -31,7 +40,7 @@ function Login() {
             cursor: 'pointer',
             zIndex: 10,
           }}
-
+onClick={handleLogoClick}
         >
           <Header className="text-white" />
         </Box>

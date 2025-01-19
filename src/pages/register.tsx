@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   TextField,
   Button,
@@ -12,8 +12,44 @@ import {
 
 import Image from 'next/image';
 import Header from '@/components/Header';
+import { useRouter } from 'next/router';
+import { Register1 } from '../../constants/instanceAxios';
 
-function Register() {
+const Register: React.FC = () => {
+  const router = useRouter();
+  const [name, setName] = useState('');
+  const [surname, setSurname] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+
+  const handleLogoClick = () => {
+    router.push('/');
+  };
+  const handleSubmit = async (event:React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setErrorMessage('');
+
+    if (password !== confirmPassword) {
+      setErrorMessage('Passwords do not match!');
+      return;
+    }
+
+    try {
+      await Register1({
+        name,
+        surname,
+        email,
+        password,
+        password_confirmation: confirmPassword,
+      });
+      router.push('/login');
+    } catch (error) {
+      setErrorMessage('Failed to register. Please try again.');
+    }
+  };
+
   return (
     <div>
       {/* Header with consistent design */}
@@ -29,11 +65,15 @@ function Register() {
           cursor: 'pointer',
           zIndex: 10,
         }}
+        onClick={handleLogoClick}
       >
-        <Header className="text-white" />
+        <Header className='text-white' />
       </Box>
 
-      <Grid container sx={{ height: '100vh' }}>
+      <Grid
+        container
+        sx={{ height: '100vh' }}
+      >
         <Grid
           item
           xs={12}
@@ -52,34 +92,42 @@ function Register() {
             }}
           >
             <Typography
-              component="h1"
-              variant="h5"
+              component='h1'
+              variant='h5'
               sx={{ width: '100%', textAlign: 'left', paddingBottom: '10px' }}
             >
               Sign up
             </Typography>
             <Typography
-              variant="body2"
+              variant='body2'
               sx={{ width: '100%', textAlign: 'left', paddingBottom: '10px' }}
             >
               Already have an account?{' '}
-              <Link href="/login" variant="body2">
+              <Link
+                href='/login'
+                variant='body2'
+              >
                 Sign in
               </Link>
             </Typography>
-            <Box component="form" noValidate sx={{ mt: 1 }}>
+            <Box
+              component='form'
+              noValidate
+              sx={{ mt: 1 }}
+              onSubmit={handleSubmit}
+            >
               <TextField
-                margin="normal"
+                margin='normal'
                 required
                 fullWidth
-                id="firstName"
-                label="Name"
-                name="firstName"
+                id='firstName'
+                label='Name'
+                name='firstName'
+                value={name}
+                onChange={(e) => setName(e.target.value)}
                 sx={{
                   width: '400px',
-                  '& .MuiOutlinedInput-root': {
-                    
-                  },
+                  '& .MuiOutlinedInput-root': {},
                   '& input': {
                     height: '48px',
                     padding: '0 14px',
@@ -88,17 +136,17 @@ function Register() {
                 }}
               />
               <TextField
-                margin="normal"
+                margin='normal'
                 required
                 fullWidth
-                id="surname"
-                label="Surname"
-                name="surname"
+                id='surname'
+                label='Surname'
+                name='surname'
+                value={surname}
+                onChange={(e) => setSurname(e.target.value)}
                 sx={{
                   width: '400px',
-                  '& .MuiOutlinedInput-root': {
-                   
-                  },
+                  '& .MuiOutlinedInput-root': {},
                   '& input': {
                     height: '48px',
                     padding: '0 14px',
@@ -107,17 +155,17 @@ function Register() {
                 }}
               />
               <TextField
-                margin="normal"
+                margin='normal'
                 required
                 fullWidth
-                id="email"
-                label="Email address"
-                name="email"
+                id='email'
+                label='Email address'
+                name='email'
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 sx={{
                   width: '400px',
-                  '& .MuiOutlinedInput-root': {
-
-                  },
+                  '& .MuiOutlinedInput-root': {},
                   '& input': {
                     height: '48px',
                     padding: '0 14px',
@@ -126,18 +174,18 @@ function Register() {
                 }}
               />
               <TextField
-                margin="normal"
+                margin='normal'
                 required
                 fullWidth
-                name="password"
-                label="Password"
-                type="password"
-                id="password"
+                name='password'
+                label='Password'
+                type='password'
+                id='password'
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 sx={{
                   width: '400px',
-                  '& .MuiOutlinedInput-root': {
-
-                  },
+                  '& .MuiOutlinedInput-root': {},
                   '& input': {
                     height: '48px',
                     padding: '0 14px',
@@ -147,18 +195,18 @@ function Register() {
               />
               {/* Confirm Password Field */}
               <TextField
-                margin="normal"
+                margin='normal'
                 required
                 fullWidth
-                id="confirmPassword"
-                label="Confirm Password"
-                type="password"
-                name="confirmPassword"
+                id='confirmPassword'
+                label='Confirm Password'
+                type='password'
+                name='confirmPassword'
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
                 sx={{
                   width: '400px',
-                  '& .MuiOutlinedInput-root': {
-
-                  },
+                  '& .MuiOutlinedInput-root': {},
                   '& input': {
                     height: '48px',
                     padding: '0 14px',
@@ -167,9 +215,9 @@ function Register() {
                 }}
               />
               <Button
-                type="submit"
+                type='submit'
                 fullWidth
-                variant="contained"
+                variant='contained'
                 sx={{
                   mt: 3,
                   mb: 2,
@@ -184,11 +232,11 @@ function Register() {
               <FormControlLabel
                 control={
                   <Checkbox
-                    name="terms"
-                    color="secondary"
+                    name='terms'
+                    color='secondary'
                   />
                 }
-                label="I agree to your Terms of Service & Privacy Policy"
+                label='I agree to your Terms of Service & Privacy Policy'
               />
             </Box>
           </Box>
@@ -204,8 +252,8 @@ function Register() {
           }}
         >
           <Image
-            src="/cat.svg"
-            alt="Login Image"
+            src='/cat.svg'
+            alt='Login Image'
             width={741}
             height={812}
             style={{ objectFit: 'cover', width: '100%', height: 'auto' }}
@@ -214,6 +262,6 @@ function Register() {
       </Grid>
     </div>
   );
-}
+};
 
 export default Register;
