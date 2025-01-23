@@ -5,7 +5,7 @@ import React from 'react'
 
 function services() {
   return (
-    <div className="h-[320px] bg-black text-white">
+    <div className="h-auto bg-black text-white">
       <Header />
       <div className="w-full flex flex-col items-center mt-6">
         <h1 className="w-[600px] text-center text-white font-[Messina Sans] text-[32px] font-semibold">
@@ -28,12 +28,19 @@ function services() {
             }}
           />
         </div>
-      </div>
-      <Footer/>
-    </div>
       
+        <div className="relative w-full mt-6">
+        
+          <div className="absolute top-0 left-0 w-full h-[80px] bg-gray-800"></div>
+        
+          <img className="w-full h-auto relative z-10" src="/services.svg" alt="services" />
+       
+          <div className="absolute bottom-0 left-0 w-full h-[80px] bg-gray-800"></div>
+        </div>
+      </div>
+      <Footer />
+    </div>
   )
-
 }
 
 export default services
